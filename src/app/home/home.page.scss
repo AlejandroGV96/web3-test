@@ -1,0 +1,36 @@
+ion-content {
+  --background: var(--ion-color-dark-tint);
+}
+
+.grid-container {
+  display: grid;
+  padding: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 3rem;
+}
+
+.explorers,
+.champions {
+  height: 500px;
+}
+
+ion-icon {
+  position: relative;
+  top: 3px;
+}
+
+ion-spinner {
+  margin-right: 3px;
+}
+
+ion-list ion-item {
+  overflow: scroll;
+}
+
+ion-card-content {
+  padding: 2rem;
+  p {
+    font-size: 1.2em;
+    margin-bottom: 2rem;
+  }
+}

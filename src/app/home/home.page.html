@@ -1,0 +1,78 @@
+<ion-content>
+  <div class="grid-container">
+    <div>
+      <ion-card class="champions">
+        <ion-card-header>
+          <ion-card-title
+            ><h2>
+              <ion-icon name="trophy-outline"></ion-icon> Web3 Champions
+            </h2></ion-card-title
+          >
+        </ion-card-header>
+        <ion-card-content>
+          <ion-list>
+            <ion-item *ngFor="let champion of champions$ | async">
+              <ion-avatar slot="start"
+                ><img
+                  src="https://avatars.dicebear.com/api/adventurer/{{champion}}.svg" /></ion-avatar
+              ><ion-label>{{champion}}</ion-label>
+            </ion-item>
+          </ion-list>
+        </ion-card-content>
+      </ion-card>
+      <ion-card>
+        <ion-card-content>
+          <ion-button expand="full" (click)="addChampion()">
+            <ion-spinner *ngIf="isAdding"></ion-spinner>
+            Add yourself as a Champion!
+          </ion-button>
+          <ion-note *ngIf="didComplete" color="success"
+          >Nice! Once your transaction is confirmed on the blockchain your
+            address will appear above! If you want, you can look up your
+            transaction on goreli.etherscan.io:
+            <strong>{{transactionHash}}</strong></ion-note
+          >
+          <ion-note *ngIf="didError" color="danger"
+          >Something went wrong! Make sure to follow the steps
+            above.</ion-note
+          >
+        </ion-card-content>
+      </ion-card>
+    </div>
+    <div>
+      <ion-card class="explorers">
+        <ion-card-header>
+          <ion-card-title><h2>Web3 Explorers</h2></ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-list>
+            <ion-item *ngFor="let explorer of explorers$ | async">
+              <ion-avatar slot="start"
+                ><img
+                  src="https://avatars.dicebear.com/api/adventurer/{{explorer}}.svg" /></ion-avatar
+              ><ion-label>{{explorer}}</ion-label>
+            </ion-item>
+          </ion-list>
+        </ion-card-content>
+      </ion-card>
+      <ion-card>
+        <ion-card-content>
+          <ion-button expand="full" (click)="addExplorer()"
+            ><ion-spinner *ngIf="isAdding"></ion-spinner> Add yourself as an
+            Explorer!</ion-button
+          >
+          <ion-note *ngIf="didComplete" color="success"
+            >Nice! Once your transaction is confirmed on the blockchain your
+            address will appear above! If you want, you can look up your
+            transaction on rinkeby.etherscan.io:
+            <strong>{{transactionHash}}</strong></ion-note
+          >
+          <ion-note *ngIf="didError" color="danger"
+            >Something went wrong! Make sure to follow the steps
+            above.</ion-note
+          >
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </div>
+</ion-content>
